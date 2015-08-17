@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quoting Dojo Redux</title>
+	<!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>EDIT A MONGOOSE!!</h1>
+				<% if(typeof(errors) != 'undefined') { %>
+					<% for (var x in errors) { %>
+						<h3><%= errors[x].message %></h3>
+						<% } %>
+					<% } %>
+					<% for (var i in mongoose) { %>
+				<form id="form-edit" action="/mongooses/<%= mongoose[i]._id %>" method="post">
+					<div class="form-group">
+						<label for="name">Mongoose Name*</label>
+						<input id="name" type="text" class="form-control" name="name" value="<%= mongoose[i].name %>" placeholder="enter name">
+					</div>
+					<div class="form-group">
+						<label for="age">Age*</label>
+						<input id="age" type="text" class="form-control" name="age" value="<%= mongoose[i].age %>" placeholder="enter age">
+					</div>
+					<div class="form-group">
+						<label for="color">Favorite Color*</label>
+						<input id="color" type="text" class="form-control" name="color" value="<%= mongoose[i].favorite_color %>" placeholder="enter favorite color">
+					</div>
+					<button type="submit" class="btn btn-primary">Update Mongoose</button>
+					<% } %>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-10">
+				<% for (var i in mongoose) { %>
+				<form id="form-delete" action="/mongooses/<%= mongoose[i]._id %>/destroy" method="post">
+				<% } %>
+					<button type="submit" class="btn btn-danger">Delete Mongoose</button>
+				</form>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>

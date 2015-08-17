@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mongoose Dashboard</title>
+	<!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>HERE ARE THE MONGOOSE:</h1>
+				<ul id="mongoose-list">
+					<% for(var i in users) { %>
+					<li><a href="/mongooses/id/<%= users[i]._id %>" class="btn btn-link" ><%= users[i].name %></a></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<a href="/mongooses/new" class="btn btn-primary">Add a Mongoose</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Quoting Dojo Redux - Mongoose</title>
+	<!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<ul id="mongoose-list">
+					<% for(var i in mongoose) { %>
+					<li>
+						<p>Name</p>
+						<h3><%= mongoose[i].name %></h3>
+						<p>Age</p>
+						<h3><%= mongoose[i].age %></h3>
+						<p>Favorite Color</p>
+						<h3><%= mongoose[i].favorite_color %></h3>
+						<a href="/mongooses/<%= mongoose[i]._id %>/edit" class="btn btn-primary">Edit Mongoose</a>
+					</li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
